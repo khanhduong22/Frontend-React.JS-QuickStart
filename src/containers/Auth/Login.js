@@ -10,7 +10,7 @@ import * as actions from '../../store/actions';
 import './Login.scss';
 
 import { handleLogin } from '../../services/userService';
-import { userLoginSuccess } from '../../store/actions/userActions';
+// import { userLoginSuccess } from '../../store/actions/userActions';
 
 class Login extends Component {
   constructor(props) {
