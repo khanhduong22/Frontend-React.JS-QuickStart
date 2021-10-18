@@ -1,7 +1,5 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
 
 import {
   getAllUsers,
@@ -12,7 +10,6 @@ import {
 
 import ModalUser from './ModalUser';
 import ModalEditUser from './ModalEditUser';
-import { emitter } from '../../utils/emitter';
 
 class UserManage extends Component {
   // constructor(props) {

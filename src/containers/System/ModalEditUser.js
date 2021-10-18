@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
-import { emitter } from '../../utils/emitter';
 
 import _ from 'lodash';
 

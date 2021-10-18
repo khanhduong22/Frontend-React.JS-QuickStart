@@ -70,12 +70,12 @@ class Login extends Component {
   render() {
     return (
       <div className="login-wrapper">
-        <div className="form-sign-in">
+        <div className="htmlForm-sign-in">
           <h1 className="h3 mb-3 fw-normal text-center">Please sign in</h1>
-          <div className="form-floating">
+          <div className="htmlForm-floating">
             <input
               type="email"
-              className="form-control"
+              className="htmlForm-control"
               id="floatingInput"
               placeholder="name@example.com"
               value={this.state.username}
@@ -83,15 +83,13 @@ class Login extends Component {
                 this.handleOnUserNameChange(event);
               }}
             />
-            <label label for="floatingInput">
-              User name
-            </label>
+            <label htmlFor="floatingInput">User name</label>
           </div>
 
-          <div className="form-floating">
+          <div className="htmlForm-floating">
             <input
               type={this.state.isShow ? 'text' : 'password'}
-              className="form-control"
+              className="htmlForm-control"
               id="floatingPassword"
               placeholder="Password"
               value={this.state.password}
@@ -99,12 +97,12 @@ class Login extends Component {
             />
             <span onClick={() => this.handleOnShowPasswordClick()}>
               {this.state.isShow ? (
-                <i class="fas fa-eye-slash"></i>
+                <i className="fas fa-eye-slash"></i>
               ) : (
-                <i class="fas fa-eye"></i>
+                <i className="fas fa-eye"></i>
               )}
             </span>
-            <label for="floatingPassword">Password</label>
+            <label htmlFor="floatingPassword">Password</label>
           </div>
 
           {/* <div className="checkbox mb-3">
@@ -125,10 +123,10 @@ class Login extends Component {
           <p className="mt-5 mb-3 h3 text-center">or Sign in with</p>
           <div className="social-list-button">
             <span>
-              <i class="fab fa-google-plus"></i>
+              <i className="fab fa-google-plus"></i>
             </span>
             <span>
-              <i class="fab fa-facebook"></i>
+              <i className="fab fa-facebook"></i>
             </span>
           </div>
         </div>

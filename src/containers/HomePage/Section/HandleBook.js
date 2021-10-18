@@ -3,49 +3,50 @@ import { connect } from 'react-redux';
 
 import Slider from 'react-slick';
 
-import './Specialty.scss';
+import './HandleBook.scss';
 
-class Specialty extends Component {
+class HandleBook extends Component {
   state = {};
 
   componentDidMount() {}
 
   render() {
+    let settings = { ...this.props.settings, slidesToShow: 2 };
     return (
-      <div className="section-slider color-section">
+      <div className="section-slider">
         <div className="section-container">
           <div className="section-header">
-            <span className="title-section">Chuyên khoa phổ biến</span>
-            <button className="btn-section">Xem thêm</button>
+            <span className="title-section">Cẩm nang</span>
+            <button className="btn-section">Tất cả bài viết</button>
           </div>
           <div className="section-body">
-            <Slider {...this.props.settings}>
+            <Slider {...settings}>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 1</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 2</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 3</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 4</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 5</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 6</div>
               </div>
               <div className="section-customize">
-                <div className="bg-image specialty-image"></div>
+                <div className="bg-image HandleBook-image"></div>
                 <div>Cơ xương khớp 7</div>
               </div>
             </Slider>
@@ -64,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default connect(mapStateToProps, mapDispatchToProps)(HandleBook);

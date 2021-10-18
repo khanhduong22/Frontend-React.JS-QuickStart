@@ -14,17 +14,17 @@ import { path } from '../utils';
 
 import Home from '../routes/Home';
 import Login from '../containers/Auth/Login';
-import Header from './Header/Header';
+// import Header from './Header/Header';
 import System from '../routes/System';
 import HomePage from '../containers/HomePage/HomePage';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
-import ConfirmModal from '../components/ConfirmModal';
+// import ConfirmModal from '../components/ConfirmModal';
 
 import CustomScrollbars from '../../src/components/CustomScrollbars';
 
 class App extends Component {
-  handlePersistorState = () => {
+  handlePersistState = () => {
     const { persistor } = this.props;
     let { bootstrapped } = persistor.getState();
     if (bootstrapped) {
@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.handlePersistorState();
+    this.handlePersistState();
   }
 
   render() {
@@ -48,7 +48,6 @@ class App extends Component {
         <Router history={history}>
           <div className="main-container">
             {/* <ConfirmModal /> */}
-            {/* {this.props.isLoggedIn && <Header />} */}
 
             <div className="content-container">
               <CustomScrollbars style={{ height: '100vh', width: '100%' }}>
