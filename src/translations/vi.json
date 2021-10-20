@@ -52,6 +52,8 @@
     "role": "Vai trò",
     "image": "Ảnh",
     "upload-image": "Tải lên",
-    "save": "Lưu"
+    "save": "Lưu",
+    "edit": "Lưu thay đổi",
+    "action": "Hành động"
   }
 }

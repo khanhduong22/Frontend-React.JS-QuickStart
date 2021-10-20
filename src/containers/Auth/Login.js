@@ -70,12 +70,12 @@ class Login extends Component {
   render() {
     return (
       <div className="login-wrapper">
-        <div className="htmlForm-sign-in">
+        <div className="form-sign-in">
           <h1 className="h3 mb-3 fw-normal text-center">Please sign in</h1>
-          <div className="htmlForm-floating">
+          <div className="form-floating">
             <input
               type="email"
-              className="htmlForm-control"
+              className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
               value={this.state.username}
@@ -86,10 +86,10 @@ class Login extends Component {
             <label htmlFor="floatingInput">User name</label>
           </div>
 
-          <div className="htmlForm-floating">
+          <div className="form-floating">
             <input
               type={this.state.isShow ? 'text' : 'password'}
-              className="htmlForm-control"
+              className="form-control"
               id="floatingPassword"
               placeholder="Password"
               value={this.state.password}

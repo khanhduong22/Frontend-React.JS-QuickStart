@@ -1,4 +1,7 @@
-@import '../../styles/common.scss';
+//test active
+// * {
+//   color: red;
+// }
 
 $color: linear-gradient(
   135deg,
@@ -44,7 +47,7 @@ $color: linear-gradient(
     border-top-right-radius: 0;
   }
   button {
-    background-color: $color;
+    background-color: $color !important;
   }
   .social-list-button {
     display: flex;

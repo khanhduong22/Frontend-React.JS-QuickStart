@@ -52,6 +52,8 @@
     "role": "Role",
     "image": "Image",
     "upload-image": "Upload",
-    "save": "Save"
+    "save": "Save",
+    "edit": "Save changes",
+    "action": "Action"
   }
 }
