@@ -26,6 +26,10 @@ const getAllCodeService = (inputType) => {
   return axios.get(`http://localhost:8080/api/allcode?type=${inputType}`);
 };
 
+const getTopDoctorHomeService = (limit) => {
+  return axios.get(`http://localhost:8080/api/top-doctor-home?limit=${limit}`);
+};
+
 export {
   handleLogin,
   getAllUsers,
@@ -33,4 +37,5 @@ export {
   deleteUserService,
   editUserService,
   getAllCodeService,
+  getTopDoctorHomeService,
 };

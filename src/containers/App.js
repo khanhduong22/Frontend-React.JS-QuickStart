@@ -1,27 +1,21 @@
+import { ConnectedRouter as Router } from 'connected-react-router';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import { ConnectedRouter as Router } from 'connected-react-router';
-import { history } from '../redux';
 import { ToastContainer } from 'react-toastify';
-
+// import ConfirmModal from '../components/ConfirmModal';
+import CustomScrollbars from '../../src/components/CustomScrollbars';
+import Login from '../containers/Auth/Login';
+import HomePage from '../containers/HomePage/HomePage';
 import {
   userIsAuthenticated,
   userIsNotAuthenticated,
 } from '../hoc/authentication';
-
-import { path } from '../utils';
-
+import { history } from '../redux';
 import Home from '../routes/Home';
-import Login from '../containers/Auth/Login';
 // import Header from './Header/Header';
 import System from '../routes/System';
-import HomePage from '../containers/HomePage/HomePage';
-
-import { CustomToastCloseButton } from '../components/CustomToast';
-// import ConfirmModal from '../components/ConfirmModal';
-
-import CustomScrollbars from '../../src/components/CustomScrollbars';
+import { path } from '../utils';
 
 class App extends Component {
   handlePersistState = () => {

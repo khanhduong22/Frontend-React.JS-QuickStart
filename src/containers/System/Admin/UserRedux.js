@@ -4,7 +4,7 @@ import 'react-image-lightbox/style.css';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions';
-import { LANGUAGES } from '../../../utils';
+import { CommonUtils, LANGUAGES } from '../../../utils';
 import TableManageUser from './TableManageUser';
 import './UserRedux.scss';
 
@@ -66,17 +66,19 @@ class UserRedux extends Component {
         role: '',
 
         avatar: '',
+        previewImgURL: '',
       });
     }
   }
 
-  handleOnChangeImage = (event) => {
+  handleOnChangeImage = async (event) => {
     let data = event.target.files;
     let file = data[0];
     if (file) {
+      let base64 = await CommonUtils.getBase64(file);
       let objectUrl = URL.createObjectURL(file);
       console.log(`objectUrl`, objectUrl);
-      this.setState({ previewImgURL: objectUrl, avatar: file });
+      this.setState({ previewImgURL: objectUrl, avatar: base64 });
     }
   };
 
@@ -94,7 +96,7 @@ class UserRedux extends Component {
       genderArr.length > 0 &&
       genderArr.map((item, index) => {
         return (
-          <option key={item.key} value={item.key}>
+          <option key={item.keyMap} value={item.keyMap}>
             {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
           </option>
         );
@@ -131,6 +133,7 @@ class UserRedux extends Component {
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
+        avatar: this.state.avatar,
       });
       this.setState({ isEdit: false });
     } else {
@@ -144,6 +147,7 @@ class UserRedux extends Component {
         gender: this.state.gender,
         roleId: this.state.role,
         positionId: this.state.position,
+        avatar: this.state.avatar,
       });
       this.setState({ isSelected: true });
     }
@@ -172,6 +176,11 @@ class UserRedux extends Component {
   };
 
   handleEditUser = (user) => {
+    let imageBase64 = '';
+    if (user.image) {
+      imageBase64 = new Buffer(user.image, 'base64').toString('binary');
+    }
+
     this.setState({
       email: user.email,
       password: 'NOT_SHOW',
@@ -180,6 +189,7 @@ class UserRedux extends Component {
 
       phoneNumber: user.phoneNumber,
       address: user.address,
+      previewImgURL: imageBase64,
 
       gender: user.gender,
       position: user.positionId,

@@ -17,7 +17,7 @@ class HomePage extends Component {
   state = {
     settings: {
       dots: false,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
