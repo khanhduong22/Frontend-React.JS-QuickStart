@@ -14,7 +14,7 @@
       background-color: darken(#0071ba, 5);
     }
     .menu-group-name {
-      width: 130px;
+      width: 100%;
       text-align: center;
 
       line-height: 40px;
@@ -35,6 +35,7 @@
 
       li {
         text-align: left;
+        width: 100%;
       }
       .menu {
         width: 205px;

@@ -16,6 +16,8 @@ import Home from '../routes/Home';
 // import Header from './Header/Header';
 import System from '../routes/System';
 import { path } from '../utils';
+import DetailDoctor from './HomePage/Patient/Doctor/DetailDoctor';
+import Doctor from '../routes/Doctor';
 
 class App extends Component {
   handlePersistState = () => {
@@ -55,7 +57,12 @@ class App extends Component {
                     path={path.SYSTEM}
                     component={userIsAuthenticated(System)}
                   />
+                  <Route
+                    path={'/doctor/'}
+                    component={userIsAuthenticated(Doctor)}
+                  />
                   <Route path={path.HOMEPAGE} component={HomePage} />
+                  <Route path="/detail-doctor/:id" component={DetailDoctor} />
                 </Switch>
               </CustomScrollbars>
               <ToastContainer

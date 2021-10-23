@@ -7,6 +7,8 @@ import {
   deleteUserService,
   editUserService,
   getTopDoctorHomeService,
+  getAllDoctors,
+  saveDetailDoctor,
 } from '../../../src/services/userService';
 import { toast } from 'react-toastify';
 
@@ -204,6 +206,74 @@ export const fetchTopDoctor = () => {
     } catch (error) {
       dispatch({ type: actionTypes.FETCH_TOP_DOCTORS_FAILED });
       console.log(`FETCH_TOP_DOCTORS_FAILED`, error);
+    }
+  };
+};
+
+//fetch Doctor for HOmepage
+export const fetchAllDoctors = () => {
+  return async (dispatch) => {
+    try {
+      let res = await getAllDoctors();
+      console.log(`res.data.data`, res.data.data);
+      if (res?.data?.errorCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+          dataDr: res.data.data,
+        });
+      } else {
+        dispatch({ type: actionTypes.FETCH_ALL_DOCTORS_FAILED });
+      }
+    } catch (error) {
+      dispatch({ type: actionTypes.FETCH_ALL_DOCTORS_FAILED });
+      console.log(`FETCH_ALL_DOCTORS_FAILED`, error);
+    }
+  };
+};
+
+//save info Doctor for Admin page
+export const saveDoctorInfo = (data) => {
+  return async (dispatch) => {
+    try {
+      let res = await saveDetailDoctor(data);
+      console.log(`data`, data);
+      if (res?.data?.errorCode === 0) {
+        toast.success('Save info doctor done!');
+        dispatch({
+          type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
+        });
+      } else {
+        toast.success('Save info doctor error!');
+
+        dispatch({ type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED });
+      }
+    } catch (error) {
+      toast.success('Save info doctor error!');
+
+      dispatch({ type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED });
+      console.log(`SAVE_DETAIL_DOCTOR_FAILED`, error);
+    }
+  };
+};
+
+//fetch Time for Doctor Schedule
+export const fetchAllScheduleTime = () => {
+  return async (dispatch) => {
+    try {
+      let res = await getAllCodeService('TIME');
+      console.log(`getAllCodeService res.data.data`, res.data.data);
+      if (res?.data?.errorCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+          dataTime: res.data.data,
+        });
+        console.log(`FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS`, res.data.data);
+      } else {
+        dispatch({ type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED });
+      }
+    } catch (error) {
+      dispatch({ type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED });
+      console.log(`FETCH_ALLCODE_SCHEDULE_TIME_FAILED`, error);
     }
   };
 };

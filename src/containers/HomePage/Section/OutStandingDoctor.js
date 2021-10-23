@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Slider from 'react-slick';
-import './OutStandingDoctor.scss';
-
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
-import { FormattedMessage } from 'react-intl';
+import './OutStandingDoctor.scss';
 
 class OutStandingDoctor extends Component {
   state = { arrDoctors: [] };
@@ -22,6 +22,11 @@ class OutStandingDoctor extends Component {
       });
     }
   }
+
+  handleOnClickDoctor = (data) => {
+    console.log(`data `, data);
+    this.props.history.push(`/detail-doctor/${data.id}`);
+  };
 
   render() {
     let { arrDoctors } = this.state;
@@ -54,6 +59,7 @@ class OutStandingDoctor extends Component {
                   <div
                     className="section-customize doctor-customize"
                     key={index}
+                    onClick={() => this.handleOnClickDoctor(item)}
                   >
                     <div className="outer-bg">
                       <div
@@ -91,4 +97,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor)
+);

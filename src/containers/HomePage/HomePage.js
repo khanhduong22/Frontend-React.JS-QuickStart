@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import HomeHeader from './HomeHeader';
-import Specialty from './Section/Specialty';
+import './HomePage.scss';
+import About from './Section/About';
+import HandleBook from './Section/HandleBook';
+import HomeFooter from './Section/HomeFooter';
 import MedicalFacility from './Section/MedicalFacility';
 import OutStandingDoctor from './Section/OutStandingDoctor';
-import HandleBook from './Section/HandleBook';
-import About from './Section/About';
-import HomeFooter from './Section/HomeFooter';
-
-import './HomePage.scss';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Specialty from './Section/Specialty';
 
 class HomePage extends Component {
   state = {
@@ -29,7 +27,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <HomeHeader />
+        <HomeHeader isBannerShow={true} />
         <Specialty settings={this.state.settings} />
         <MedicalFacility settings={this.state.settings} />
         <OutStandingDoctor settings={this.state.settings} />
