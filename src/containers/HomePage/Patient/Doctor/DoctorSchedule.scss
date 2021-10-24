@@ -1,0 +1,12 @@
+.doctor-schedule-container {
+  .time-selector {
+    font-weight: 500;
+    width: 200px;
+  }
+  .time-button {
+    min-width: 180px;
+    &:hover {
+      background-color: #45c3d2;
+    }
+  }
+}

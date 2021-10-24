@@ -7,6 +7,7 @@ import { getDetailDoctorInfo } from '../../../../services/userService';
 
 import './DetailDoctor.scss';
 import { LANGUAGES } from '../../../../utils';
+import DoctorSchedule from './DoctorSchedule';
 
 class DetailDoctor extends Component {
   state = {
@@ -56,7 +57,16 @@ class DetailDoctor extends Component {
               </div>
             </div>
           </div>
-          <div className="row schedule-doctor"></div>
+          <div className="row schedule-doctor mt-4">
+            <div className="col-7 content-left justify-content-start border-end border-2 border-success">
+              <DoctorSchedule
+                doctorIdFromParent={
+                  doctorDetail && doctorDetail.id ? doctorDetail.id : -1
+                }
+              />
+            </div>
+            <div className="col-5 content-right"></div>
+          </div>
           <hr />
           <div className="row detail-info-doctor">
             {doctorDetail?.Markdown?.contentHTML && (
