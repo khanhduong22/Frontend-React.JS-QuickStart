@@ -1,14 +1,13 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import Select from 'react-select';
-import * as actions from '../../../store/actions';
-import { LANGUAGES, dateFormat } from '../../../utils';
-import DatePicker from '../../../components/Input/DatePicker';
-import moment from 'moment';
-import { FormattedMessage } from 'react-intl';
 import { toast } from 'react-toastify';
-import _ from 'lodash';
+import DatePicker from '../../../components/Input/DatePicker';
 import { createBulkScheduleDoctor } from '../../../services/userService';
+import * as actions from '../../../store/actions';
+import { LANGUAGES } from '../../../utils';
 
 export class ManageSchedule extends Component {
   state = {
@@ -164,8 +163,8 @@ export class ManageSchedule extends Component {
                     onClick={() => this.handleOnClickTime(item)}
                     className={
                       item.isSelected === true
-                        ? 'btn btn-warning col me-2'
-                        : 'btn btn-outline-info col me-2'
+                        ? 'btn btn-warning col me-2 my-2'
+                        : 'btn btn-outline-info col me-2 my-2'
                     }
                     key={index}
                   >

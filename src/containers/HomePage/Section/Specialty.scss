@@ -1,4 +1,6 @@
-//specialty image
-.specialty-image {
-  background-image: url(../../../assets/specialty/co-xuong-khop.jpg);
+.section-customize {
+  &:hover {
+    cursor: pointer;
+    color: #45c3d2;
+  }
 }

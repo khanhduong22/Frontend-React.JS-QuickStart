@@ -24,7 +24,6 @@ class OutStandingDoctor extends Component {
   }
 
   handleOnClickDoctor = (data) => {
-    console.log(`data `, data);
     this.props.history.push(`/detail-doctor/${data.id}`);
   };
 
@@ -32,7 +31,6 @@ class OutStandingDoctor extends Component {
     let { arrDoctors } = this.state;
     const { language } = this.props;
 
-    console.log(`arrDoctors`, arrDoctors);
     return (
       <div className="section-slider color-section">
         <div className="section-container">
@@ -59,15 +57,13 @@ class OutStandingDoctor extends Component {
                   <div
                     className="section-customize doctor-customize"
                     key={index}
-                    onClick={() => this.handleOnClickDoctor(item)}
-                  >
+                    onClick={() => this.handleOnClickDoctor(item)}>
                     <div className="outer-bg">
                       <div
                         className="bg-image outStandingDoctor-image"
                         style={{
                           backgroundImage: `url(${imageBase64})`,
-                        }}
-                      ></div>
+                        }}></div>
                     </div>
                     <div className="text-center position">
                       <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>

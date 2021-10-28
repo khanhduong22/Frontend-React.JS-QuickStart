@@ -62,7 +62,8 @@
   },
   "homepage": {
     "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-    "more-info": "Xem thêm"
+    "more-info": "Xem thêm",
+    "specialty": "Chuyên khoa phổ biến"
   },
   "manage-schedule": {
     "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
@@ -73,7 +74,42 @@
   "patient": {
     "detail-doctor": {
       "schedule": "Lịch khám bệnh",
-      "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác"
+      "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác",
+      "address": "Địa chỉ khám",
+      "price": "Giá khám bệnh: ",
+      "detail": "Xem chi tiết",
+      "payment-method": "Phương thức thanh toán chấp nhận: ",
+      "hide-price-table": "Ẩn bảng giá"
     }
+  },
+  "admin": {
+    "manage-doctor": {
+      "title": "Tạo thêm thông tin bác sĩ",
+      "select-doctor": "Chọn bác sĩ",
+      "intro": "Thông tin giới thiệu",
+      "add": "Tạo thông tin",
+      "save": "Lưu thông tin",
+      "price": "Giá khám bệnh",
+      "payment": "Phương thức thanh toán",
+      "province": "Tỉnh thành",
+      "nameClinic": "Tên phòng khám",
+      "addressClinic": "Địa chỉ phòng khám",
+      "note": "Ghi chú",
+      "choose-specialty": "Chọn chuyên khoa"
+    }
+  },
+  "booking-modal": {
+    "title": "Thông tin đặt lịch khám bệnh",
+    "fullName": "Họ và tên",
+    "phoneNumber": "Số điện thoại",
+    "email": "Địa chỉ email",
+    "address": "Địa chỉ",
+    "reason": "Lý do khám bệnh",
+    "birthday": "Ngày sinh",
+    "gender": "Giới tính",
+    "btnConfirm": "Xác nhận",
+    "btnCancel": "Hủy",
+    "priceBooking": "Miễn phí đặt lịch",
+    "price": "Giá khám bệnh: "
   }
 }

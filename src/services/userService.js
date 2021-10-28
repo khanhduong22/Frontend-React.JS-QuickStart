@@ -54,6 +54,40 @@ const getScheduleDoctorByDate = (doctorId, date) => {
   );
 };
 
+const getExtraInfoDoctorByDoctorId = (doctorId) => {
+  return axios.get(
+    `http://localhost:8080/api/get-extra-info-doctor-by-id?doctorId=${doctorId}`
+  );
+};
+
+const getProfileDoctorById = (doctorId) => {
+  return axios.get(
+    `http://localhost:8080/api/get-profile-doctor-by-id?doctorId=${doctorId}`
+  );
+};
+
+const postPatientBookAppointment = (data) => {
+  return axios.post(`http://localhost:8080/api/patient-book-appointment`, data);
+};
+
+const postVerifyBookAppointment = (data) => {
+  return axios.post(`http://localhost:8080/verify-booking`, data);
+};
+
+const createNewSpecialty = (data) => {
+  return axios.post(`http://localhost:8080/api/create-new-specialty`, data);
+};
+
+const getAllSpecialty = () => {
+  return axios.get(`http://localhost:8080/api/get-specialty`);
+};
+
+const getAllDetailSpecialtyById = (data) => {
+  return axios.get(
+    `http://localhost:8080/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`
+  );
+};
+
 export {
   handleLogin,
   getAllUsers,
@@ -67,4 +101,11 @@ export {
   getDetailDoctorInfo,
   createBulkScheduleDoctor,
   getScheduleDoctorByDate,
+  getExtraInfoDoctorByDoctorId,
+  getProfileDoctorById,
+  postPatientBookAppointment,
+  postVerifyBookAppointment,
+  createNewSpecialty,
+  getAllSpecialty,
+  getAllDetailSpecialtyById,
 };
