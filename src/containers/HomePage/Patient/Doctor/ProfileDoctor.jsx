@@ -7,6 +7,7 @@ import { LANGUAGES } from '../../../../utils';
 import './ProfileDoctor.scss';
 import _ from 'lodash';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class ProfileDoctor extends Component {
   state = { dataProfile: {} };
@@ -48,7 +49,8 @@ class ProfileDoctor extends Component {
 
   render() {
     const { dataProfile } = this.state;
-    const { language, dataTime } = this.props;
+    const { language, dataTime, isShowPrice, isShowLinkDetail, doctorId } =
+      this.props;
     let nameVi = '',
       nameEn = '';
     if (dataProfile?.positionData) {
@@ -68,8 +70,7 @@ class ProfileDoctor extends Component {
                 height: '80px',
                 width: '80px',
                 borderRadius: '50%',
-              }}
-            ></div>
+              }}></div>
           </div>
           <div className="col-10 content-right text-start">
             <div className="row up fw-bold fs-5 text-uppercase">
@@ -87,24 +88,33 @@ class ProfileDoctor extends Component {
           </div>
         </div>
         <div className="row">
-          <span>
-            <FormattedMessage id="patient.detail-doctor.price" />
-            {language === LANGUAGES.VI ? (
-              <NumberFormat
-                value={dataProfile?.Doctor_Info?.priceData?.valueVi}
-                displayType={'text'}
-                thousandSeparator={true}
-                suffix={'đ'}
-              />
-            ) : (
-              <NumberFormat
-                value={dataProfile?.Doctor_Info?.priceData?.valueEn}
-                displayType={'text'}
-                thousandSeparator={true}
-                suffix={'$'}
-              />
-            )}
-          </span>
+          {isShowLinkDetail && (
+            <span className="col-2 text-center">
+              <Link to={`/detail-doctor/${doctorId}`}>
+                <FormattedMessage id="patient.detail-doctor.more" />
+              </Link>
+            </span>
+          )}
+          {isShowPrice && (
+            <span>
+              <FormattedMessage id="patient.detail-doctor.price" />
+              {language === LANGUAGES.VI ? (
+                <NumberFormat
+                  value={dataProfile?.Doctor_Info?.priceData?.valueVi}
+                  displayType={'text'}
+                  thousandSeparator={true}
+                  suffix={'đ'}
+                />
+              ) : (
+                <NumberFormat
+                  value={dataProfile?.Doctor_Info?.priceData?.valueEn}
+                  displayType={'text'}
+                  thousandSeparator={true}
+                  suffix={'$'}
+                />
+              )}
+            </span>
+          )}
         </div>
       </>
     );

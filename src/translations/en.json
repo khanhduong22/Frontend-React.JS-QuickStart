@@ -39,7 +39,8 @@
     },
     "doctor": {
       "manage-schedule": "Manage schedule",
-      "schedule": "Schedule"
+      "schedule": "Schedule",
+      "manage-patient": "Manage patient"
     }
   },
 
@@ -79,7 +80,8 @@
       "price": "Price: ",
       "detail": "More detail",
       "payment-method": "Payment method allow: ",
-      "hide-price-table": "Hide table"
+      "hide-price-table": "Hide table",
+      "more": "More info"
     }
   },
   "admin": {

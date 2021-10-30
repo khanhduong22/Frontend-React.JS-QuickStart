@@ -39,7 +39,8 @@
     },
     "doctor": {
       "manage-schedule": "Quản lý kế hoạch khám bệnh",
-      "schedule": "Lịch khám bệnh"
+      "schedule": "Lịch khám bệnh",
+      "manage-patient": "Bệnh nhân đặt lịch"
     }
   },
 
@@ -79,7 +80,8 @@
       "price": "Giá khám bệnh: ",
       "detail": "Xem chi tiết",
       "payment-method": "Phương thức thanh toán chấp nhận: ",
-      "hide-price-table": "Ẩn bảng giá"
+      "hide-price-table": "Ẩn bảng giá",
+      "more": "Xem thêm"
     }
   },
   "admin": {

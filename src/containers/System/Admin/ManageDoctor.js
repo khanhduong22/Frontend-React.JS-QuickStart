@@ -94,7 +94,7 @@ class ManagerDoctor extends Component {
         'USERS'
       );
       this.setState({ listDoctors: dataSelect });
-      const { resPrice, resPayment, resProvince, resSpecialty } =
+      const { resPrice, resPayment, resProvince, resSpecialty, resClinic } =
         this.props.allRequiredDoctorInfo;
 
       let dataSelectedPrice = this.buildDataInputSelect(resPrice);
@@ -104,17 +104,19 @@ class ManagerDoctor extends Component {
         resSpecialty,
         'NoEng'
       );
+      let dataSelectedClinic = this.buildDataInputSelect(resClinic, 'NoEng');
 
       this.setState({
         listPrice: dataSelectedPrice,
         listPayment: dataSelectedPayment,
         listProvince: dataSelectedProvince,
         listSpecialty: dataSelectedSpecialty,
+        listClinic: dataSelectedClinic,
       });
     }
 
     if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
-      const { resPrice, resPayment, resProvince, resSpecialty } =
+      const { resPrice, resPayment, resProvince, resSpecialty, resClinic } =
         this.props.allRequiredDoctorInfo;
 
       let dataSelectedPrice = this.buildDataInputSelect(resPrice);
@@ -124,12 +126,14 @@ class ManagerDoctor extends Component {
         resSpecialty,
         'NoEng'
       );
+      let dataSelectedClinic = this.buildDataInputSelect(resClinic, 'NoEng');
 
       this.setState({
         listPrice: dataSelectedPrice,
         listPayment: dataSelectedPayment,
         listProvince: dataSelectedProvince,
         listSpecialty: dataSelectedSpecialty,
+        listClinic: dataSelectedClinic,
       });
     }
   }
@@ -164,6 +168,7 @@ class ManagerDoctor extends Component {
       let selectedPayment = '';
       let selectedProvince = '';
       let selectedSpecialty = '';
+      let selectedClinic = '';
 
       let nameClinic = '';
       let addressClinic = '';
@@ -173,14 +178,21 @@ class ManagerDoctor extends Component {
       let paymentId = '';
       let provinceId = '';
       let specialtyId = '';
-      const { listPrice, listPayment, listProvince, listSpecialty } =
-        this.state;
+      let clinicId = '';
+      const {
+        listPrice,
+        listPayment,
+        listProvince,
+        listSpecialty,
+        listClinic,
+      } = this.state;
 
       if (doctor_info) {
         priceId = doctor_info.priceId;
         paymentId = doctor_info.paymentId;
         provinceId = doctor_info.provinceId;
         specialtyId = doctor_info.specialtyId;
+        clinicId = doctor_info.clinicId;
 
         nameClinic = doctor_info.nameClinic;
         addressClinic = doctor_info.addressClinic;
@@ -199,6 +211,10 @@ class ManagerDoctor extends Component {
         selectedSpecialty = listSpecialty.find((item) => {
           return item?.value === specialtyId;
         });
+
+        selectedClinic = listClinic.find((item) => {
+          return item?.value === clinicId;
+        });
       }
 
       if (
@@ -216,6 +232,7 @@ class ManagerDoctor extends Component {
           selectedPayment,
           selectedProvince,
           selectedSpecialty,
+          selectedClinic,
 
           nameClinic,
           addressClinic,
@@ -428,12 +445,21 @@ class ManagerDoctor extends Component {
                     <label>
                       <FormattedMessage id="admin.manage-doctor.addressClinic" />
                     </label>
-                    <input
+                    {/* <input
                       value={addressClinic}
                       onChange={(event) =>
                         this.handleOnChangeInputText(event, 'addressClinic')
                       }
                       className="form-control"
+                    /> */}
+                    <Select
+                      value={this.state.selectedClinic}
+                      onChange={this.handleOnChangeInputTextWithName}
+                      options={this.state.listClinic}
+                      placeholder={
+                        <FormattedMessage id="admin.manage-doctor.choose-clinic" />
+                      }
+                      name="selectedClinic"
                     />
                   </div>
                 </div>

@@ -52,7 +52,13 @@ class DoctorSchedule extends Component {
     const { allDays } = this.state;
     this.initArrayDate();
 
-    let res = await getScheduleDoctorByDate(doctorIdFromParent, allDays[0]);
+    let res = await getScheduleDoctorByDate(
+      doctorIdFromParent,
+      moment(new Date()).add('days').startOf('days').valueOf()
+    );
+    if (res?.data?.info?.errorCode === 0) {
+      this.setState({ allAvailableTime: res.data.info.data });
+    }
   }
 
   async componentDidUpdate(prevProps, prevState) {

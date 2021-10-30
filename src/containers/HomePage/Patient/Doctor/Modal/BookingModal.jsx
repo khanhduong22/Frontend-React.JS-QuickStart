@@ -128,7 +128,8 @@ class BookingModal extends Component {
       email: this.state.email,
       address: this.state.address,
       reason: this.state.reason,
-      date,
+      date: this.props.dataForBookingModal.date,
+      birthday: date,
       selectedGender: this.state.selectedGender.value,
       doctorId: this.state.doctorId,
       timeType: this.state.timeType,
@@ -175,6 +176,7 @@ class BookingModal extends Component {
               doctorId={doctorId}
               isShowDescription={false}
               dataTime={dataForBookingModal}
+              isShowPrice={true}
             />
             <hr />
 
