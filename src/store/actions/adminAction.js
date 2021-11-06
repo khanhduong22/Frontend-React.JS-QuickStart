@@ -20,7 +20,7 @@ export const fetchGenderStart = () => {
     try {
       dispatch({ type: actionTypes.FETCH_GENDER_START });
 
-      let res = await getAllCodeService('gender');
+      let res = await getAllCodeService('GENDER');
       if (res?.data?.errorCode === 0) {
         dispatch(fetchGenderSuccess(res.data.data));
       } else {
@@ -50,7 +50,7 @@ export const fetchPositionStart = () => {
 export const fetchRoleStart = () => {
   return async (dispatch, getState) => {
     try {
-      let res = await getAllCodeService('Role');
+      let res = await getAllCodeService('ROLE');
       if (res?.data?.errorCode === 0) {
         dispatch(fetchRoleSuccess(res.data.data));
       } else {

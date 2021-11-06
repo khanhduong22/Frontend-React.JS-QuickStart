@@ -10,6 +10,8 @@ import * as actions from '../../store/actions';
 import './Login.scss';
 
 import { handleLogin } from '../../services/userService';
+import { Redirect } from 'react-router';
+import { USER_ROLE } from '../../utils';
 // import { userLoginSuccess } from '../../store/actions/userActions';
 
 class Login extends Component {
@@ -29,6 +31,35 @@ class Login extends Component {
   state = {
     ...this.initialState,
   };
+
+  componentDidMount() {
+    alert(`
+    >>>> Check admin
+    id: admin
+    pass: 123
+    
+    >>>> Check booking (bs Nguyễn Phương Hằng)
+    id: bs6
+    pass: 123
+    `);
+    // const { isLoggedIn, userInfo } = this.props;
+    // let adminPath = '/system/user-manage';
+    // let doctorPath = 'doctor/manage-patient';
+    // let role = userInfo?.roleId;
+    // let linkToRedirect = isLoggedIn ? '/system/user-manage' : '/home';
+    // if (userInfo && !_.isEmpty(userInfo)) {
+    //   if (isLoggedIn && role === USER_ROLE.ADMIN) {
+    //     linkToRedirect = adminPath;
+    //   }
+    //   if (isLoggedIn && role === USER_ROLE.DOCTOR) {
+    //     linkToRedirect = doctorPath;
+    //   }
+    // }
+    // console.log(`linkToRedirect`, linkToRedirect);
+    // // let linkToRedirect = isLoggedIn ? '/login' : '/home';
+
+    // return <Redirect to={linkToRedirect} />;
+  }
 
   handleOnUserNameChange = (event) => {
     this.setState({
@@ -69,7 +100,7 @@ class Login extends Component {
 
   handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.keyCode === 13) {
-      this.handleLogin();
+      this.handleOnSignInButton();
     }
   };
 
@@ -123,8 +154,7 @@ class Login extends Component {
           <button
             className="w-100 btn btn-lg btn-primary"
             type="submit"
-            onClick={() => this.handleOnSignInButton()}
-          >
+            onClick={() => this.handleOnSignInButton()}>
             Sign in
           </button>
           <p className="mt-5 mb-3 h3 text-center">or Sign in with</p>
@@ -145,6 +175,8 @@ class Login extends Component {
 const mapStateToProps = (state) => {
   return {
     lang: state.app.language,
+    isLoggedIn: state.user.isLoggedIn,
+    userInfo: state.user.userInfo,
   };
 };
 

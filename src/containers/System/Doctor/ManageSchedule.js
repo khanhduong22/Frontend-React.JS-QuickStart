@@ -21,7 +21,7 @@ export class ManageSchedule extends Component {
     let result = [];
     let { language } = this.props;
     if (inputData && inputData.length > 0) {
-      inputData.map((item, index) => {
+      inputData.forEach((item, index) => {
         let object = {};
         let labelVi = `${item.lastName} ${item.firstName}`;
         let labelEn = `${item.firstName} ${item.lastName}`;
@@ -97,7 +97,7 @@ export class ManageSchedule extends Component {
     if (rangeTime && rangeTime.length > 0) {
       let selectedTime = rangeTime.filter((item) => item.isSelected === true);
       if (selectedTime && selectedTime.length > 0) {
-        selectedTime.map((item) => {
+        selectedTime.forEach((item) => {
           let object = {};
           object.doctorId = selectedOption.value;
           object.date = formateDate;
@@ -119,7 +119,7 @@ export class ManageSchedule extends Component {
   };
 
   render() {
-    const { rangeTime, listDoctors } = this.state;
+    const { rangeTime } = this.state;
     const { language } = this.props;
     let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     return (
@@ -166,8 +166,7 @@ export class ManageSchedule extends Component {
                         ? 'btn btn-warning col me-2 my-2'
                         : 'btn btn-outline-info col me-2 my-2'
                     }
-                    key={index}
-                  >
+                    key={index}>
                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                   </button>
                 );
@@ -176,8 +175,7 @@ export class ManageSchedule extends Component {
         </div>
         <button
           onClick={() => this.handleOnSaveScheduleButton()}
-          className="btn btn-primary mt-4"
-        >
+          className="btn btn-primary mt-4">
           <FormattedMessage id="manage-schedule.save" />
         </button>
       </div>

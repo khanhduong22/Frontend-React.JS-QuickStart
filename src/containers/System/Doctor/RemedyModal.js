@@ -41,8 +41,7 @@ class RemedyModal extends Component {
   };
 
   render() {
-    const { isOpenModal, closeRemedyModal, dataModal, language, sendRemedy } =
-      this.props;
+    const { isOpenModal, closeRemedyModal } = this.props;
     const { email } = this.state;
     return (
       <>

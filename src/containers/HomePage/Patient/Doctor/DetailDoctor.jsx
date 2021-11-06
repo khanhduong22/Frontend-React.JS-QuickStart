@@ -10,6 +10,9 @@ import { LANGUAGES } from '../../../../utils';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfo from './DoctorExtraInfo';
 
+import LikeAndShare from '../../SocialPlugin/LikeAndShare';
+import Comment from '../../SocialPlugin/Comment';
+
 class DetailDoctor extends Component {
   state = {
     doctorDetail: {},
@@ -34,6 +37,12 @@ class DetailDoctor extends Component {
       nameEn = `${doctorDetail.positionData.valueEn}, ${doctorDetail.firstName} ${doctorDetail.lastName}`;
     }
 
+    let currentURL =
+      process.env.REACT_APP_IS_LOCALHOST === 1
+        ? 'link-to-herokuapp'
+        : window.location.href;
+    console.log(`currentURL`, currentURL);
+
     return (
       <>
         <HomeHeader isBannerShow={false} />
@@ -44,8 +53,7 @@ class DetailDoctor extends Component {
                 className="avatar"
                 style={{
                   backgroundImage: `url(${doctorDetail?.image})`,
-                }}
-              ></div>
+                }}></div>
             </div>
             <div className="col-10 content-right text-start">
               <div className="row up fw-bold fs-5 text-uppercase">
@@ -55,6 +63,10 @@ class DetailDoctor extends Component {
                 {doctorDetail?.Markdown?.contentHTML && (
                   <span>{doctorDetail?.Markdown?.description}</span>
                 )}
+
+                <div className="like-share-plugin">
+                  <LikeAndShare dataHref={currentURL} />
+                </div>
               </div>
             </div>
           </div>
@@ -81,11 +93,12 @@ class DetailDoctor extends Component {
                 className="text-start mt-4"
                 dangerouslySetInnerHTML={{
                   __html: doctorDetail?.Markdown?.contentHTML,
-                }}
-              ></div>
+                }}></div>
             )}
           </div>
-          <div className="row comment-doctor"></div>
+          <div className="comment-doctor">
+            <Comment dataHref={currentURL} width={'100%'} />
+          </div>
         </div>
       </>
     );

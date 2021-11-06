@@ -1,18 +1,16 @@
-import DoctorSchedule from '../Patient/Doctor/DoctorSchedule';
-import DoctorExtraInfo from '../Patient/Doctor/DoctorExtraInfo';
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './DetailClinic.scss';
-import HomeHeader from '../../HomePage/HomeHeader';
-import ProfileDoctor from '../Patient/Doctor/ProfileDoctor';
-import {
-  getAllCodeService,
-  getAllDetailClinicById,
-  getAllClinic,
-} from '../../../services/userService';
 import { withRouter } from 'react-router';
-import _ from 'lodash';
-import { LANGUAGES } from '../../../utils';
+import {
+  getAllClinic,
+  getAllDetailClinicById,
+} from '../../../services/userService';
+import HomeHeader from '../../HomePage/HomeHeader';
+import DoctorExtraInfo from '../Patient/Doctor/DoctorExtraInfo';
+import DoctorSchedule from '../Patient/Doctor/DoctorSchedule';
+import ProfileDoctor from '../Patient/Doctor/ProfileDoctor';
+import './DetailClinic.scss';
 
 class DetailClinic extends Component {
   state = {
@@ -61,7 +59,7 @@ class DetailClinic extends Component {
 
   render() {
     const { arrDoctorId, dataDetailClinic, image } = this.state;
-    const { language } = this.props;
+    // const { language } = this.props;
     console.log(`this.state`, this.state);
     return (
       <>

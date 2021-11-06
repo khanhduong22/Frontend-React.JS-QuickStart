@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick.css';
 import HomeHeader from './HomeHeader';
 import './HomePage.scss';
 import About from './Section/About';
-import HandleBook from './Section/HandleBook';
 import HomeFooter from './Section/HomeFooter';
 import MedicalFacility from './Section/MedicalFacility';
 import OutStandingDoctor from './Section/OutStandingDoctor';

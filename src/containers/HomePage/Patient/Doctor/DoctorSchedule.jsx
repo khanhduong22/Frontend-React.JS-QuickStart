@@ -28,13 +28,13 @@ class DoctorSchedule extends Component {
       if (this.props.language === LANGUAGES.VI) {
         let labelVi = moment(new Date())
           .add(index, 'days')
-          .format('dddd - DD/DD');
+          .format('dddd - DD/MM');
         object.label = this.capitalizeFirstLetter(labelVi);
       } else {
         object.label = moment(new Date())
           .add(index, 'days')
           .locale('en')
-          .format('dddd - DD/DD');
+          .format('dddd - MMM DD');
       }
       object.value = moment(new Date())
         .add(index, 'days')
@@ -49,7 +49,7 @@ class DoctorSchedule extends Component {
 
   async componentDidMount() {
     const { doctorIdFromParent } = this.props;
-    const { allDays } = this.state;
+    // const { allDays } = this.state;
     this.initArrayDate();
 
     let res = await getScheduleDoctorByDate(

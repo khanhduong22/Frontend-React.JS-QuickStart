@@ -178,7 +178,7 @@ class UserRedux extends Component {
   handleEditUser = (user) => {
     let imageBase64 = '';
     if (user.image) {
-      imageBase64 = new Buffer(user.image, 'base64').toString('binary');
+      imageBase64 = Buffer.from(user.image, 'base64').toString('binary');
     }
 
     this.setState({
@@ -314,8 +314,7 @@ class UserRedux extends Component {
               <select
                 className="form-control"
                 value={gender}
-                onChange={(event) => this.onChangeInput(event, 'gender')}
-              >
+                onChange={(event) => this.onChangeInput(event, 'gender')}>
                 <option selected={this.state.isSelected}>Choose...</option>
                 {this.renderOption(this.state.genderArr)}
               </select>
@@ -327,8 +326,7 @@ class UserRedux extends Component {
               <select
                 className="form-control"
                 value={position}
-                onChange={(event) => this.onChangeInput(event, 'position')}
-              >
+                onChange={(event) => this.onChangeInput(event, 'position')}>
                 <option selected={this.state.isSelected}>Choose...</option>
                 {this.renderOption(this.state.positionArr)}
               </select>
@@ -339,8 +337,7 @@ class UserRedux extends Component {
               <select
                 className="form-control"
                 value={role}
-                onChange={(event) => this.onChangeInput(event, 'role')}
-              >
+                onChange={(event) => this.onChangeInput(event, 'role')}>
                 <option selected={this.state.isSelected}>Choose...</option>
                 {this.renderOption(this.state.roleArr)}
               </select>
@@ -368,8 +365,7 @@ class UserRedux extends Component {
                   style={{
                     backgroundImage: `url(${this.state.previewImgURL})`,
                   }}
-                  onClick={() => this.openPreviewImage()}
-                ></div>
+                  onClick={() => this.openPreviewImage()}></div>
               </div>
             </div>
           </div>
@@ -377,8 +373,9 @@ class UserRedux extends Component {
           <div className="form-group"></div>
           <button
             onClick={(event) => this.handleSaveUser(event)}
-            className={isEdit ? 'mt-4 btn btn-warning' : 'mt-4 btn btn-primary'}
-          >
+            className={
+              isEdit ? 'mt-4 btn btn-warning' : 'mt-4 btn btn-primary'
+            }>
             {isEdit ? (
               <FormattedMessage id="manage-user.edit" />
             ) : (

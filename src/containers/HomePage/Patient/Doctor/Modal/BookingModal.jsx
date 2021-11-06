@@ -20,23 +20,31 @@ class BookingModal extends Component {
     address: '',
     reason: '',
     birthday: '',
-    gender: '',
     doctorId: '',
     selectedGender: '',
     timeType: '',
 
-    genders: '',
+    genders: [],
   };
 
-  componentDidMount() {
-    this.props.fetchGender();
+  async componentDidMount() {
+    await this.props.fetchGender();
+    this.setState({ genders: this.buildDataInputSelect(this.props.genders) });
+    if (
+      this.props.dataForBookingModal &&
+      !_.isEmpty(this.props.dataForBookingModal)
+    ) {
+      let doctorId = this.props.dataForBookingModal.doctorId;
+      let timeType = this.props.dataForBookingModal.timeType;
+      this.setState({ doctorId: doctorId, timeType: timeType });
+    }
   }
 
   buildDataInputSelect = (inputData) => {
     let result = [];
     let { language } = this.props;
     if (inputData && inputData.length > 0) {
-      inputData.map((item, index) => {
+      inputData.forEach((item, index) => {
         let object = {};
         // let labelVi = `${item.lastName} ${item.firstName}`;
         // let labelEn = `${item.firstName} ${item.lastName}`;
@@ -117,7 +125,7 @@ class BookingModal extends Component {
     return '';
   };
 
-  handleOnConfirmBooking = async (params) => {
+  handleOnConfirmBooking = async () => {
     let date = new Date(this.state.birthday).getTime();
     let timeString = this.buildTimeBooking(this.props.dataForBookingModal);
     let doctorName = this.buildDoctorName(this.props.dataForBookingModal);
@@ -147,10 +155,8 @@ class BookingModal extends Component {
   };
 
   render() {
-    const { isOpenModal, closeBookingModal, dataForBookingModal, language } =
-      this.props;
-    const { fullName, phoneNumber, email, address, reason, birthday, gender } =
-      this.state;
+    const { isOpenModal, closeBookingModal, dataForBookingModal } = this.props;
+    const { fullName, phoneNumber, email, address, reason } = this.state;
     let doctorId =
       dataForBookingModal && !_.isEmpty(dataForBookingModal)
         ? dataForBookingModal?.doctorId
@@ -277,7 +283,6 @@ class BookingModal extends Component {
                   <DatePicker
                     onChange={this.handleOnChangeDate}
                     className="form-control"
-                    placeholderText="Select a date after 5 days ago"
                   />
                 </div>
               </div>

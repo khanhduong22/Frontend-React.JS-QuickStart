@@ -51,7 +51,7 @@ class ManagerDoctor extends Component {
     let { language } = this.props;
     if (type === 'NoEng') {
       if (inputData && inputData.length > 0) {
-        inputData.map((item, index) => {
+        inputData.forEach((item, index) => {
           let object = {};
           object.label = item.name;
           object.value = item.id;
@@ -60,7 +60,7 @@ class ManagerDoctor extends Component {
       }
     } else {
       if (inputData && inputData.length > 0) {
-        inputData.map((item, index) => {
+        inputData.forEach((item, index) => {
           let object = {};
           let labelVi =
             type === 'USERS'
@@ -297,14 +297,8 @@ class ManagerDoctor extends Component {
   };
 
   render() {
-    const {
-      listSpecialty,
-      contentMarkdown,
-      hasOldData,
-      addressClinic,
-      nameClinic,
-      note,
-    } = this.state;
+    const { contentMarkdown, hasOldData, addressClinic, nameClinic, note } =
+      this.state;
     // console.log(`this.state`, this.state);
     return (
       <>
